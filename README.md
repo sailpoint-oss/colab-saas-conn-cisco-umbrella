@@ -4,7 +4,7 @@
 [![Contributor Shield][contributor-shield]][contributors-url]
 
 [discourse-shield]:https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
-[discourse-url]:https://developer.sailpoint.com/discuss/tag/workflows
+[discourse-url]:https://developer.sailpoint.com/discuss/t/cisco-umbrella-connector/18186
 [issues-shield]:https://img.shields.io/github/issues/sailpoint-oss/colab-saas-conn-cisco-umbrella?label=Issues
 [issues-url]:https://github.com/sailpoint-oss/colab-saas-conn-cisco-umbrella/issues
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/colab-saas-conn-cisco-umbrella?label=Current%20Release
@@ -13,7 +13,7 @@
 [contributors-url]:https://github.com/sailpoint-oss/colab-saas-conn-cisco-umbrella/graphs/contributors
 
 # Cisco Umbrella SaaS Connector
-[Explore the docs »](https://your-link-to-colab-topic-here)
+[Explore the docs »](https://developer.sailpoint.com/discuss/t/cisco-umbrella-connector/18186)
 
 [New to the CoLab? Click here »](https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230)
 
@@ -38,4 +38,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Discuss
-[Click Here](https://developer.sailpoint.com/dicuss/tag/{tagName}) to discuss this tool with other users.
+[Click Here](https://developer.sailpoint.com/discuss/t/cisco-umbrella-connector/18186) to discuss this tool with other users.
