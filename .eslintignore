@@ -1,0 +1,10 @@
+.idea
+.git
+.github
+.vscode
+dist
+node_modules
+test
+README.md
+*.spec.ts
+*.test.ts

@@ -1,0 +1,215 @@
+{
+    "name": "Cisco Umbrella",
+    "description": "The SailPoint Cisco Umbrella SaaS connector provides governance capabilities for the users of the Cisco Umbrella system. Capabilities include aggregation, and provisioning users.",
+    "commands": [
+        "std:test-connection",
+        "std:account:create",
+        "std:account:read",
+        "std:account:list",
+        "std:entitlement:list",
+        "std:account:delete"
+    ],
+    "showDebugLoggingOption": true,
+    "scriptName": "cisco-umbrella-saas",
+    "testConnectionTimeout": 90,
+    "sourceConfig": [
+        {
+            "label": "Connection Settings",
+            "type": "menu",
+            "items": [
+                {
+                    "items": [
+                        {
+                            "key": "apiKey",
+                            "type": "text",
+                            "label": "API Key",
+                            "required": true
+                        },
+                        {
+                            "key": "keySecret",
+                            "type": "secret",
+                            "label": "Key Secret",
+                            "required": true
+                        }
+                    ],
+                    "type": "section",
+                    "sectionTitle": "Connection Settings",
+                    "sectionHelpMessage": "To configure a direct connection between the Cisco Umbrella source and SailPoint, enter the authentication credentials required to establish a secure connection.<br><br>Enter the <b>API Key</b> and <b>Key Secret</b> generated in the Cisco Umbrella system.",
+                    "docLinkLabel": "Learn more about Configuration Settings",
+                    "docLink": "https://documentation.sailpoint.com/connectors/saas/cisco_umbrella/help/"
+                }
+            ]
+        },
+        {
+            "items": [
+                {
+                    "items": [
+                        {
+                            "key": "pageSize",
+                            "type": "number",
+                            "label": "Page Size"
+                        }
+                    ],
+                    "type": "section",
+                    "sectionTitle": "Aggregation Settings",
+                    "sectionHelpMessage": "In the <b>Page Size</b> field, enter the number of account records to aggregate in a single page when iterating over large datasets.",
+                    "docLinkLabel": "Learn more about Page Size Settings",
+                    "docLink": "https://documentation.sailpoint.com/connectors/saas/cisco_umbrella/help/SaaS_Connectivity/cisco_umbrella/Aggregation_Settings.html"
+                }
+            ],
+            "label": "Aggregation Settings",
+            "type": "menu"
+        }
+    ],
+    "sourceConfigInitialValues": {
+        "keyValueInitialValues": {
+            "pageSize": 200
+        }
+    },
+    "accountSchema": {
+        "displayAttribute": "email",
+        "identityAttribute": "id",
+        "groupAttribute": "roleId",
+        "attributes": [
+            {
+                "name": "id",
+                "type": "string",
+                "description": "The user's unique ID"
+            },
+            {
+                "name": "firstname",
+                "type": "string",
+                "description": "The user's first name"
+            },
+            {
+                "name": "lastname",
+                "type": "string",
+                "description": "The user's last name"
+            },
+            {
+                "name": "email",
+                "type": "string",
+                "description": "The user's email address"
+            },
+            {
+                "name": "status",
+                "type": "string",
+                "description": "The user's active status"
+            },
+            {
+                "name": "roleId",
+                "type": "int",
+                "description": "The role ID for the user's role",
+                "entitlement": true,
+                "managed": true
+            },
+            {
+                "name": "role",
+                "type": "string",
+                "description": "The user's role"
+            },
+            {
+                "name": "timezone",
+                "type": "string",
+                "description": "The user's timezone"
+            },
+            {
+                "name": "lastLoginTime",
+                "type": "string",
+                "description": "The user's last login date and time"
+            },
+            {
+                "name": "twoFactorEnable",
+                "type": "boolean",
+                "description": "Indicates if the user requires two-factor authentication"
+            }
+        ]
+    },
+    "entitlementSchemas": [
+        {
+            "type": "group",
+            "displayAttribute": "label",
+            "identityAttribute": "roleId",
+            "attributes": [
+                {
+                    "name": "roleId",
+                    "type": "int",
+                    "description": "The role's unique ID"
+                },
+                {
+                    "name": "label",
+                    "type": "string",
+                    "description": "The role's label"
+                },
+                {
+                    "name": "organizationID",
+                    "type": "int",
+                    "description": "The organization ID associated with role"
+                }
+            ]
+        }
+    ],
+    "accountCreateTemplate": {
+        "fields": [
+            {
+                "key": "email",
+                "label": "Email",
+                "type": "string",
+                "required": true,
+                "initialValue": {
+                    "type": "identityAttribute",
+                    "attributes": {
+                        "name": "email"
+                    }
+                }
+            },
+            {
+                "key": "firstname",
+                "label": "FirstName",
+                "type": "string",
+                "required": true,
+                "initialValue": {
+                    "type": "identityAttribute",
+                    "attributes": {
+                        "name": "firstname"
+                    }
+                }
+            },
+            {
+                "key": "lastname",
+                "label": "LastName",
+                "type": "string",
+                "initialValue": {
+                    "type": "identityAttribute",
+                    "attributes": {
+                        "name": "lastname"
+                    }
+                }
+            },
+            {
+                "key": "password",
+                "label": "Password",
+                "type": "string",
+                "required": true,
+                "initialValue": {
+                    "type": "generator",
+                    "attributes": {
+                        "name": "Create Password"
+                    }
+                }
+            },
+            {
+                "key": "timezone",
+                "label": "TimeZone",
+                "type": "string",
+                "required": true,
+                "initialValue": {
+                    "type": "static",
+                    "attributes": {
+                        "value": "UTC"
+                    }
+                }
+            }
+        ]
+    }
+}

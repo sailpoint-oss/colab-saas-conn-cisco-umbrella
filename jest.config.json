@@ -1,0 +1,13 @@
+{
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageThreshold": {
+        "global": {
+            "statements": 95
+        }
+    },
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "verbose": true
+}

@@ -1,0 +1,26 @@
+# macOS General
+**/.DS_Store
+**/.AppleDouble
+**/.LSOverride
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Intellij
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Compiled source
+dist/
+
+# Dependency directories
+node_modules/
+
+# Unit test code coverage report
+coverage/
+
+# Developer modules
+config.json

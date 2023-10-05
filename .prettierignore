@@ -1,0 +1,9 @@
+.idea
+.git
+.github
+.vscode
+dist
+node_modules
+coverage
+README.md
+package-lock.json
